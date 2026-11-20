@@ -67,7 +67,7 @@ import {
   apiUpdateProject,
   fetchWorkspaceData,
 } from "./api/api";
-import ResearchDesignStudio from "./discovery";
+import ExplorePage from "./ExplorePage";
 
 type Page = "Overview" | "Library" | "Explore" | "Notes" | "Projects" | "Experiments" | "Settings";
 type Entity = "paper" | "note" | "project" | "experiment";
@@ -93,7 +93,7 @@ const pageCopy: Record<Page, { eyebrow: string; description: string }> = {
   },
   Explore: {
     eyebrow: "Research discovery",
-    description: "Explore papers, topics, and researchers through a sample editorial experience.",
+    description: "Search saved papers and browse by research area.",
   },
   Notes: {
     eyebrow: "Working knowledge",
@@ -241,7 +241,9 @@ export default function App() {
           <PageHeader page={page} onAdd={openAdd} />
           {page === "Overview" && <Overview {...shared} />}
           {page === "Library" && <LibraryPage {...shared} />}
-          {page === "Explore" && <ResearchDesignStudio />}
+          {page === "Explore" && (
+            <ExplorePage papers={data.papers} onOpenPaper={(id) => openView("paper", id)} />
+          )}
           {page === "Notes" && <NotesPage {...shared} />}
           {page === "Projects" && <ProjectsPage {...shared} />}
           {page === "Experiments" && <ExperimentsPage {...shared} />}

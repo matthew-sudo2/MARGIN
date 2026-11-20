@@ -1,0 +1,24 @@
+{
+  "name": "margin-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MARGIN — Research & Thesis Workspace (MERN Stack Framework)",
+  "scripts": {
+    "dev:client": "npm --prefix client run dev",
+    "dev:server": "npm --prefix server run dev",
+    "build:client": "npm --prefix client run build",
+    "start:server": "npm --prefix server start",
+    "test:server": "npm --prefix server test",
+    "install:all": "npm --prefix client install && npm --prefix server install"
+  },
+  "keywords": [
+    "mern",
+    "express",
+    "react",
+    "nodejs",
+    "mongodb",
+    "research-workspace"
+  ],
+  "author": "",
+  "license": "MIT"
+}

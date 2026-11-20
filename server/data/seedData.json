@@ -1,0 +1,112 @@
+{
+  "papers": [
+    {
+      "id": "paper-attention",
+      "title": "Attention Is All You Need",
+      "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar et al.",
+      "year": 2017,
+      "domain": "Machine Learning",
+      "abstract": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks. This work proposes a new simple network architecture based solely on attention mechanisms.",
+      "venue": "NeurIPS",
+      "url": "https://doi.org/10.48550/arXiv.1706.03762",
+      "dateAdded": "2026-11-11T00:00:00.000Z"
+    },
+    {
+      "id": "paper-biodiversity",
+      "title": "Global patterns of terrestrial biodiversity",
+      "authors": "Harold J. Newbold, Lawrence N. Hudson et al.",
+      "year": 2023,
+      "domain": "Ecology",
+      "abstract": "A cross-biome synthesis of local biodiversity responses to land use and related pressures.",
+      "venue": "Nature Ecology & Evolution",
+      "url": "https://doi.org/10.1038/example",
+      "dateAdded": "2026-11-07T00:00:00.000Z"
+    },
+    {
+      "id": "paper-cities",
+      "title": "The social life of urban public space",
+      "authors": "Mina K. Patel, Rowan Clarke",
+      "year": 2024,
+      "domain": "Urban Studies",
+      "abstract": "An observational study of how design decisions influence informal interaction across shared city spaces.",
+      "venue": "Journal of Urban Design",
+      "url": "",
+      "dateAdded": "2026-11-01T00:00:00.000Z"
+    }
+  ],
+  "notes": [
+    {
+      "id": "note-transformer",
+      "title": "Transformer architecture — key claims",
+      "content": "Self-attention removes recurrence and makes the model significantly more parallelizable. Revisit the positional encoding ablation before literature review.",
+      "paperId": "paper-attention",
+      "createdAt": "2026-11-12T00:00:00.000Z",
+      "modifiedAt": "2026-11-12T00:00:00.000Z"
+    },
+    {
+      "id": "note-fieldwork",
+      "title": "Fieldwork sampling questions",
+      "content": "How do we distinguish temporary occupancy from sustained use? Consider three observation windows per location.",
+      "paperId": "paper-cities",
+      "createdAt": "2026-11-09T00:00:00.000Z",
+      "modifiedAt": "2026-11-10T00:00:00.000Z"
+    },
+    {
+      "id": "note-reading",
+      "title": "Reading group: biodiversity measures",
+      "content": "Compare species richness against abundance-based intactness. The latter may be more responsive to land-use intensity.",
+      "paperId": "paper-biodiversity",
+      "createdAt": "2026-11-05T00:00:00.000Z",
+      "modifiedAt": "2026-11-08T00:00:00.000Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": "project-thesis",
+      "name": "Thesis literature synthesis",
+      "description": "Map foundational and recent work on efficient sequence models.",
+      "category": "Dissertation",
+      "status": "In Progress",
+      "createdAt": "2026-10-14T00:00:00.000Z"
+    },
+    {
+      "id": "project-urban",
+      "name": "Urban commons field study",
+      "description": "Document patterns of informal activity in three neighborhood plazas.",
+      "category": "Field Research",
+      "status": "Planning",
+      "createdAt": "2026-10-26T00:00:00.000Z"
+    },
+    {
+      "id": "project-review",
+      "name": "Biodiversity metric review",
+      "description": "Compare methods used to estimate local ecological intactness.",
+      "category": "Literature Review",
+      "status": "Completed",
+      "createdAt": "2026-09-22T00:00:00.000Z"
+    }
+  ],
+  "experiments": [
+    {
+      "id": "experiment-baseline",
+      "title": "Baseline sequence classifier",
+      "description": "Establish a reproducible recurrent baseline for comparison.",
+      "methodology": "Train a two-layer BiLSTM across five fixed random seeds.",
+      "observations": "Convergence is stable after epoch 12; variance is concentrated in minority classes.",
+      "results": "Macro F1: 0.78 ± 0.02.",
+      "projectId": "project-thesis",
+      "recordedAt": "2026-11-10T00:00:00.000Z"
+    },
+    {
+      "id": "experiment-observation",
+      "title": "Pilot observation protocol",
+      "description": "Test the field observation rubric at one study site.",
+      "methodology": "Two researchers independently coded activity at 15-minute intervals.",
+      "observations": "Ambiguity arose between passing through and short informal stays.",
+      "results": "Inter-rater agreement: 82%. Rubric revision required.",
+      "projectId": "project-urban",
+      "recordedAt": "2026-11-06T00:00:00.000Z"
+    }
+  ]
+}
+

@@ -7,6 +7,7 @@ import {
   CalendarDays,
   CheckCircle2,
   ChevronRight,
+  Compass,
   CircleDot,
   Clock3,
   ExternalLink,
@@ -66,14 +67,16 @@ import {
   apiUpdateProject,
   fetchWorkspaceData,
 } from "./api/api";
+import ResearchDesignStudio from "./discovery";
 
-type Page = "Overview" | "Library" | "Notes" | "Projects" | "Experiments" | "Settings";
+type Page = "Overview" | "Library" | "Explore" | "Notes" | "Projects" | "Experiments" | "Settings";
 type Entity = "paper" | "note" | "project" | "experiment";
 type Dialog = { mode: "add" | "edit" | "view"; entity: Entity; id?: string } | null;
 
 const navItems: { name: Page; icon: typeof LayoutDashboard }[] = [
   { name: "Overview", icon: LayoutDashboard },
   { name: "Library", icon: Library },
+  { name: "Explore", icon: Compass },
   { name: "Notes", icon: NotebookPen },
   { name: "Projects", icon: FolderKanban },
   { name: "Experiments", icon: FlaskConical },
@@ -87,6 +90,10 @@ const pageCopy: Record<Page, { eyebrow: string; description: string }> = {
   Library: {
     eyebrow: "Source collection",
     description: "Collect, annotate, and return to the literature that grounds your work.",
+  },
+  Explore: {
+    eyebrow: "Research discovery",
+    description: "Explore papers, topics, and researchers through a sample editorial experience.",
   },
   Notes: {
     eyebrow: "Working knowledge",
@@ -133,6 +140,7 @@ export default function App() {
 
     const hash = window.location.hash.toLowerCase();
     if (hash === "#library") setPage("Library");
+    else if (hash === "#explore") setPage("Explore");
     else if (hash === "#notes") setPage("Notes");
     else if (hash === "#projects") setPage("Projects");
     else if (hash === "#experiments") setPage("Experiments");
@@ -233,6 +241,7 @@ export default function App() {
           <PageHeader page={page} onAdd={openAdd} />
           {page === "Overview" && <Overview {...shared} />}
           {page === "Library" && <LibraryPage {...shared} />}
+          {page === "Explore" && <ResearchDesignStudio />}
           {page === "Notes" && <NotesPage {...shared} />}
           {page === "Projects" && <ProjectsPage {...shared} />}
           {page === "Experiments" && <ExperimentsPage {...shared} />}
@@ -421,9 +430,16 @@ function Sidebar({
 }
 
 function PageHeader({ page, onAdd }: { page: Page; onAdd: (entity: Entity) => void }) {
-  const entity = (
-    { Library: "paper", Notes: "note", Projects: "project", Experiments: "experiment" } as const
-  )[page as Exclude<Page, "Overview" | "Settings">];
+  const entity: Entity | undefined =
+    page === "Library"
+      ? "paper"
+      : page === "Notes"
+        ? "note"
+        : page === "Projects"
+          ? "project"
+          : page === "Experiments"
+            ? "experiment"
+            : undefined;
   return (
     <div className="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
       <div>
